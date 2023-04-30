@@ -25,9 +25,10 @@ INNER JOIN music_video.producer pr ON ar.title = pr.title
 ORDER BY ar.age ASC;
 
 -- 5. top streams music video since 2021
-SELECT ar.youtube_streams, ar.year, ar.singer, ar.title, pr.producer
+SELECT DISTINCT ar.youtube_streams, ar.year, ar.singer, ar.title, pr.producer
 FROM music_video.artist ar
 INNER JOIN music_video.producer pr ON ar.title = pr.title
 WHERE ar.year >= 2021
 ORDER BY ar.youtube_streams DESC;
+
 
