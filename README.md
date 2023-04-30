@@ -44,7 +44,7 @@
  
 ## OPTION 2: Through GitHub Actions
 
-### To deploy the stack  on ```AWS```, follow the example in the following repo:
+### To deploy the stack  on ```AWS```, customize the example in the following repository:
 
 1) #### Sample GitHub Deployment
    * Repo Link: https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3
