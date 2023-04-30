@@ -12,7 +12,7 @@
      * DDL script (ddl.sql) for data objects (TABLES) creation. Run via Redshift Query Editor 2                                                       
      * DML script (dml.sql) for inserting data. Run via either:
        * Redshift Query Editor 2
-       * Node.js module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3) <br>
+       * NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3) <br>
      * DQL script (dql.sql). Run via Redshift Query Editor 2                                                                   
   
 <br>
