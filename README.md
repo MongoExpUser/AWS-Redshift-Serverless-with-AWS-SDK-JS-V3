@@ -3,7 +3,7 @@
 <strong> Deployment and Modeling of AWS Redshift Serverless (A cloud data warehouse).</strong>
 <br><br>
 
-  1) The NodeJS script (index.js) can execute the followings: creates, updates and deletes the following resources:                   
+  1) The NodeJS script (index.js) can execute the followings: creates and deletes the following resources:                   
      * Redshift Serverless Namespace                                                                                                                 
      * Redshift Serverless Workgroup                                                                                                                 
      * Redshift Serverless Usage Limit  
