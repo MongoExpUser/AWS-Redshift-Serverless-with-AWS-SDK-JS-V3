@@ -36,7 +36,11 @@
    
 
 3) #### Fill in relevant values in inputConfig.json file.<br>
-   * <strong>References for inputConfig.json </strong>: https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/
+   * <strong>References for inputConfig.json </strong>: 
+     * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/createnamespacecommand.html
+     * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/createworkgroupcommand.html
+     * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/createusagelimitcommand.html
+     * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/deleteworkgroupcommand.html
 
 4) #### Then run the code, assuming sudo access: <br>
    * sudo node index.js <br><br>
