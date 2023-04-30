@@ -1,1 +1,43 @@
-#
+{
+  "creator" : "creator",
+  "orgName" : "orgName",
+  "projectName" : "projectName",
+  "environment"  : "environment",
+  "regionName" : "regionName",
+  "resoureName" :  "resoureName",
+  "serviceProvider" :"serviceProvider",
+  "createResources" : false,
+  "deleteResources" : false,
+  "credentials" : "credentials.json",
+  "addSuffix" : false,
+  "createParameters" : {
+      "namespaceName":  "namespaceName - update dynamically",
+      "adminUserPassword": "adminUserPasswor",
+      "adminUsername": "adminUsername",
+      "dbName": "dbName",
+      "defaultIamRoleArn" : "defaultIamRoleArn",
+      "iamRoles": [ "defaultIamRoleArn" ],
+      "logExports": [ "userlog", "connectionlog", "useractivitylog" ],
+      "tags" : [ "tags - update dynamically" ]
+  },
+  "createWorkgroupParameters" : {
+      "namespaceName" : "namespaceName - update dynamically",  
+      "workgroupName" : "namespaceName - update dynamically", 
+      "baseCapacity": 8,      
+      "enhancedVpcRouting" : false,
+      "publiclyAccessible" : false,
+      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3"],
+      "securityGroupIds" : [ "sg-value" ],
+      "tags" : [ "tags - update dynamically" ]
+  },
+  "createUsageLimitParameters" :{
+      "amount" : 5,          
+      "resourceArn" : "add-value-dynamically", 
+      "usageType" : "serverless-compute",
+      "breachAction" : "deactivate", 
+      "period": "monthly"        
+  },
+  "deleteWorkgroupParameters" : {
+    "workgroupName" : "workgroupName"
+  }
+}
