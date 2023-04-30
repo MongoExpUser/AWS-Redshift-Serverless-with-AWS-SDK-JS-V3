@@ -12,7 +12,7 @@ FROM music_video.artist ar
 INNER JOIN music_video.producer pr ON ar.title = pr.title
 ORDER BY ar.youtube_streams DESC;
 
--- 3. oldest-to-yongest music videos singer
+-- 3. oldest-to-youngest music videos singer
 SELECT ar.age, ar.singer
 FROM music_video.artist ar
 INNER JOIN music_video.producer pr ON ar.title = pr.title
@@ -30,5 +30,4 @@ FROM music_video.artist ar
 INNER JOIN music_video.producer pr ON ar.title = pr.title
 WHERE ar.year >= 2021
 ORDER BY ar.youtube_streams DESC;
-
 
