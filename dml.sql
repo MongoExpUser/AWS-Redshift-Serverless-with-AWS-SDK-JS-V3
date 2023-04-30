@@ -1,5 +1,5 @@
 
---  create stored procedure to populate artist table from synhetic list of values
+--  create stored procedure to populate artist table from synthetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, IN rand_value INTEGER) AS $$
     DECLARE 
         counter INTEGER := 0;
@@ -61,8 +61,7 @@ CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, I
     END;
 $$ LANGUAGE 'plpgsql';
 
-
---  create stored procedure to populate producer table from synhetic list of values
+--  create stored procedure to populate producer table from synthetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_producer(IN loop_limit INTEGER,  IN rand_value INTEGER) AS $$
     DECLARE 
         counter INTEGER := 0;
@@ -106,13 +105,13 @@ CREATE OR REPLACE PROCEDURE music_video.populate_producer(IN loop_limit INTEGER,
 $$ LANGUAGE 'plpgsql';
 
 
--- populate artist & producer tables
+-- populate artist table: loop only once (i.e 1st argument), for each 2nd argument, to ensure uniquiness
 CALL music_video.populate_artist(1, 0);
 CALL music_video.populate_artist(1, 1);
 CALL music_video.populate_artist(1, 2);
 CALL music_video.populate_artist(1, 3);
 CALL music_video.populate_artist(1, 4);
--- 
+-- populate producer table: loop only once (i.e 1st argument), for each 2nd argument, to ensure uniquiness
 CALL music_video.populate_producer(1, 0);
 CALL music_video.populate_producer(1, 1);
 CALL music_video.populate_producer(1, 2);
@@ -120,6 +119,9 @@ CALL music_video.populate_producer(1, 3);
 CALL music_video.populate_producer(1, 4);
 
 
--- remove all data (uncomment to delete, if desired)
+-- remove all data and objects (uncomment to delete, if desired)
 -- DELETE FROM music_video.artist;
 -- DELETE FROM music_video.producer;
+-- DROP TABLE IF EXISTS music_video.artist;
+-- DROP TABLE IF EXISTS music_video.producer;
+-- DROP SCHEMA IF EXISTS music_video CASCADE;
