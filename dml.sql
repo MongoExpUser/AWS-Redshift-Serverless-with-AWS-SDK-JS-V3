@@ -1,3 +1,4 @@
+
 --  create stored procedure to populate artist table from sythetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, IN rand_value INTEGER) AS $$
     DECLARE 
@@ -60,6 +61,7 @@ CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, I
     END;
 $$ LANGUAGE 'plpgsql';
 
+
 --  create stored procedure to populate producer table from sythetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_producer(IN loop_limit INTEGER,  IN rand_value INTEGER) AS $$
     DECLARE 
@@ -118,6 +120,6 @@ CALL music_video.populate_producer(1, 3);
 CALL music_video.populate_producer(1, 4);
 
 
--- remove all data 
+-- remove all data (uncomment to delete, if desired)
 -- DELETE FROM music_video.artist;
 -- DELETE FROM music_video.producer;
