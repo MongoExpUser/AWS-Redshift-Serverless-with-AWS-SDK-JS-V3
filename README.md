@@ -1,6 +1,6 @@
 # AWS-Redshift-Serverless-with-AWS-SDK-JS-V3
 
-<strong> Deployment and Modeling of AWS Redshift Serverless.</strong>
+<strong> Deployment and Modeling of AWS Redshift Serverless (A cloud data warehouse).</strong>
 <br><br>
 
   1) The NodeJS script (index.js) can execute the followings: creates, updates and deletes the following resources:                   
