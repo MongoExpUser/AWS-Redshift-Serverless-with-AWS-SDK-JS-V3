@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS music_video.artist (
   youtube_streams BIGINT NOT NULL
 ) COMPOUND SORTKEY (id, year);
 -- automatic table optimization using DISTKEY
--- ALTER TABLE music.playlist ALTER DISTSTYLE AUTO; -- the default
-
+-- ALTER TABLE music_video.artist ALTER DISTSTYLE AUTO; -- the default
+ALTER TABLE music_video.artist ALTER DISTSTYLE EVEN;
 
 DROP TABLE IF EXISTS music_video.producer;
 CREATE TABLE IF NOT EXISTS music_video.producer (
@@ -23,4 +23,5 @@ CREATE TABLE IF NOT EXISTS music_video.producer (
   experience_in_years SMALLINT NOT NULL
 ) COMPOUND SORTKEY (id, producer);
 -- automatic table optimization using DISTKEY
--- ALTER TABLE music.producer ALTER DISTSTYLE AUTO; -- the default
+-- ALTER TABLE music_video.producer ALTER DISTSTYLE AUTO; -- the default
+ALTER TABLE music_video.producer ALTER DISTSTYLE EVEN;
