@@ -12,15 +12,15 @@
 #  *                                                                                                                                                   *
 #  *  index.js implements a module/script for creating and deleting Redshift Serverless with with AWS SDK for JavaScript/NodeJS V3.                    *
 #  *                                                                                                                                                   *
-#  *  A) The following resources are created/deployed with @aws-sdk/client-redshift-serverless (AWS-SDK-JS-V3)                                         *
-#  *  1) Redshift Serverless Namespace                                                                                                                 *
-#  *  2) Redshift Serverless Workgroup                                                                                                                 *
-#  *  3) Redshift Serverless Usage Limit                                                                                                               *
+#  *  A) The following resources are created/deployed with @aws-sdk/client-redshift-serverless (AWS-SDK-JS-V3):                                        *
+#  *    1) Redshift Serverless Namespace                                                                                                               *
+#  *    2) Redshift Serverless Workgroup                                                                                                               *
+#  *    3) Redshift Serverless Usage Limit                                                                                                             *
 #  *                                                                                                                                                   *
-#  *  B) Additional Scripts for Modeling                                                                                                               *
-#  *  1) DDL script for data objects (Tables) creation: Run via Redshift Query Editor 2                                                                *
-#  *  2) DML script for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)               *
-#  *  3) DQL script for running queries: : Run via Redshift Query Editor 2                                                                             *
+#  *  B) Additional scripts for modeling:                                                                                                              *
+#  *    1) DDL script for data objects (Tables) creation: Run via Redshift Query Editor 2                                                              *
+#  *    2) DML script for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)             *
+#  *    3) DQL script for running queries: : Run via Redshift Query Editor 2                                                                           *
 #  *****************************************************************************************************************************************************
 */
 
@@ -132,9 +132,9 @@ async function main()
 {
     // require/import and instantiate relevant modules
     const fs = require('fs');
-    const { v4: uuidv4 }  = require('uuid');
+    // const { v4: uuidv4 }  = require('uuid');
     const rst = new RedshiftStack();
-    const inputConfigJsonFilePath = "inputConfigRedshiftSless.json";
+    const inputConfigJsonFilePath = "inputConfig.json";
     const inputConfig = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
     const userDataFilePath = String(inputConfig.userData);
     const credentialJsonFilePath = inputConfig.credentials;
@@ -143,7 +143,7 @@ async function main()
 
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
-    const suffix = String(uuidv4()).substring(0, 4);
+    const suffix = String(rs.tuuid4()).substring(0, 4);
     const orgName = inputConfig.orgName;
     const projectName = inputConfig.projectName;
     const environment  = inputConfig.environment;
