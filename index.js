@@ -132,7 +132,6 @@ async function main()
 {
     // require/import and instantiate relevant modules
     const fs = require('fs');
-    // const { v4: uuidv4 }  = require('uuid');
     const rst = new RedshiftStack();
     const inputConfigJsonFilePath = "inputConfig.json";
     const inputConfig = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
@@ -143,7 +142,8 @@ async function main()
 
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
-    const suffix = String(rs.tuuid4()).substring(0, 4);
+    const uuid4Value = await rst.uuid4();
+    const suffix = String(uuid4Value).substring(0, 4);
     const orgName = inputConfig.orgName;
     const projectName = inputConfig.projectName;
     const environment  = inputConfig.environment;
