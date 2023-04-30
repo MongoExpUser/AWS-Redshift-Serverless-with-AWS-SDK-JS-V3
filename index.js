@@ -134,11 +134,11 @@ async function main()
     const fs = require('fs');
     const { v4: uuidv4 }  = require('uuid');
     const rst = new RedshiftStack();
-    const inputConfigJsonFilePath = "inputConfigEcoRedshiftSless.json";
+    const inputConfigJsonFilePath = "inputConfigRedshiftSless.json";
     const inputConfig = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
     const userDataFilePath = String(inputConfig.userData);
     const credentialJsonFilePath = inputConfig.credentials;
-    let credentials =  (JSON.parse(fs.readFileSync(credentialJsonFilePath))).ecotertTestingAccount;
+    let credentials =  (JSON.parse(fs.readFileSync(credentialJsonFilePath))).credentials;
     let options = { credentials: { accessKeyId : credentials.accessKeyId, secretAccessKey: credentials.secretAccessKey }, region: credentials.region };
 
     // define common naming, tagging and environmental variables
