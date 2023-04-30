@@ -29,4 +29,6 @@ SELECT ar.youtube_streams, ar.year, ar.singer, ar.title, pr.producer
 FROM music_video.artist ar
 INNER JOIN music_video.producer pr ON ar.title = pr.title
 WHERE ar.year >= 2021
-ORDER BY pr.producer ASC;
+ORDER BY ar.youtube_streams DESC;
+
+
