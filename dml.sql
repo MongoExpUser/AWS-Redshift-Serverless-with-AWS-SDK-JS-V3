@@ -1,5 +1,5 @@
 
---  create stored procedure to populate artist table from sythetic list of values
+--  create stored procedure to populate artist table from synhetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, IN rand_value INTEGER) AS $$
     DECLARE 
         counter INTEGER := 0;
@@ -62,7 +62,7 @@ CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, I
 $$ LANGUAGE 'plpgsql';
 
 
---  create stored procedure to populate producer table from sythetic list of values
+--  create stored procedure to populate producer table from synhetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_producer(IN loop_limit INTEGER,  IN rand_value INTEGER) AS $$
     DECLARE 
         counter INTEGER := 0;
