@@ -8,9 +8,9 @@
      * Redshift Serverless Workgroup                                                                                                                 
      * Redshift Serverless Usage Limit  
      
-  2) Additional SQL Scripts in the repo for modeling:                                                                                                
+  2) Additional SQL scripts in the repo for modeling include:                                                                                             
      * DDL script (ddl.sql) for data objects (TABLES) creation. Run via Redshift Query Editor 2                                                       
-     * DMLsScript (dml.sql) for inserting data. Run via either:
+     * DML script (dml.sql) for inserting data. Run via either:
        * Redshift Query Editor 2
        * Node.js module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3) <br>
      * DQL script (dql.sql). Run via Redshift Query Editor 2                                                                   
@@ -20,7 +20,7 @@
 
 ## DEPLOYING AWS Redshift Serverless with the NodeJS script
 
-## Cloned to Local Computer
+## Option 1: Cloned to Local Computer
 
 ### To deploy the stack  on ```AWS```, follow these steps:
 
@@ -40,6 +40,16 @@
 
 4) #### Then run the code, assuming sudo access: <br>
    * sudo node index.js <br><br>
+   
+ 
+## OPTION 2: Through GitHub Actions
+
+### To deploy the stack  on ```AWS```, follow the example in the following repo:
+
+1) #### Sample GitHub Deployment
+   * Repo Link: https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3
+   * Repo CI Link: [![CI - AWS-SDK-JS-V3 Deploy CFN](https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3/actions/workflows/deploy-cfn.yml/badge.svg)](https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3/actions/workflows/deploy-cfn.yml)
+  
 
 
 # License
