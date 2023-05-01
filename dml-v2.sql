@@ -2,8 +2,8 @@
 
 -- This defers from version 1 by:
 -- 1. Using both plpythonu (PL/Python — Python Procedural Language) and 
---    plpgsq (PL/pgSQL — SQL Procedural Language) for function definitions instead of ony plpgsq
--- 2. populate tables with only one stored procedure (sp) instead on separated SPs for each table
+--    plpgsq (PL/pgSQL — SQL Procedural Language) for function definitions instead of only plpgsq
+-- 2. populate tables with only one stored procedure (sp) instead on separate SPs for the tables
 -- 3. generate more randomized values.
 
 CREATE OR REPLACE FUNCTION music_video.synthetic_year(IN item_list SMALLINT []) 
