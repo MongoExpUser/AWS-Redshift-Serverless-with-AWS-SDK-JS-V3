@@ -1,3 +1,4 @@
+-- DML - Version 1
 
 --  create stored procedure to populate artist table from synthetic list of values
 CREATE OR REPLACE PROCEDURE music_video.populate_artist(IN loop_limit INTEGER, IN rand_value INTEGER) AS $$
