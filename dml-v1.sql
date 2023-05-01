@@ -126,3 +126,4 @@ CALL music_video.populate_producer(1, 4);
 -- DROP TABLE IF EXISTS music_video.artist;
 -- DROP TABLE IF EXISTS music_video.producer;
 -- DROP SCHEMA IF EXISTS music_video CASCADE;
+
