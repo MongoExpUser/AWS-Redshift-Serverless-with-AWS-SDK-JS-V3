@@ -19,7 +19,7 @@
 #  *                                                                                                                                                   *
 #  *  B) Additional scripts for modeling:                                                                                                              *
 #  *    1) DDL script for data objects (Tables) creation: Run via Redshift Query Editor 2                                                              *
-#  *    2) DML script for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)             *
+#  *    2) DML scripts for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)            *
 #  *    3) DQL script for running queries: : Run via Redshift Query Editor 2                                                                           *
 #  *****************************************************************************************************************************************************
 */
