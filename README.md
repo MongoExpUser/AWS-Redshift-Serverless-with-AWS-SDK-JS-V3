@@ -35,7 +35,7 @@
    * JSON files: credentials.json and inputConfig.json <br>
    
 
-3) #### Fill in relevant values in inputConfig.json file.<br>
+3) #### Fill in relevant values in the inputConfig.json file.<br>
    * <strong>References for inputConfig.json </strong>: 
      * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/createnamespacecommand.html
      * https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-serverless/classes/createworkgroupcommand.html
@@ -48,7 +48,7 @@
  
 ## OPTION 2: Through GitHub Actions
 
-### To deploy the stack  on ```AWS```, customize the example in the following repository:
+### To deploy the stack  on ```AWS```, customize the YML file in the following repository:
 
 1) #### Sample GitHub Deployment
    * Repo Link: https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3
