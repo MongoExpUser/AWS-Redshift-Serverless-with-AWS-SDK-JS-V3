@@ -48,7 +48,7 @@
  
 ## OPTION 2: Through GitHub Actions
 
-### To deploy the stack  on ```AWS```, customize the YML file in the following repository:
+### To deploy the stack  on ```AWS```, customize the workflow YML file in the following repository:
 
 1) #### Sample GitHub Deployment
    * Repo Link: https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3
