@@ -1,22 +1,22 @@
 {
-  "creator" : "creator",
-  "orgName" : "orgName",
-  "projectName" : "projectName",
-  "environment"  : "environment",
-  "regionName" : "regionName",
-  "resoureName" :  "resoureName",
-  "serviceProvider" :"serviceProvider",
+  "creator" : "aws-sdk-v3",
+  "orgName" : "org",
+  "projectName" : "proj",
+  "environment"  : "dev",
+  "regionName" : "us-east-1",
+  "resoureName" :  "demo",
+  "serviceProvider" :"org-provider",
   "createResources" : false,
   "deleteResources" : false,
   "credentials" : "credentials.json",
   "addSuffix" : false,
   "createParameters" : {
       "namespaceName":  "namespaceName - update dynamically",
-      "adminUserPassword": "adminUserPasswor",
-      "adminUsername": "adminUsername",
-      "dbName": "dbName",
-      "defaultIamRoleArn" : "defaultIamRoleArn",
-      "iamRoles": [ "defaultIamRoleArn" ],
+      "adminUserPassword": "pasd - update dynamically",
+      "adminUsername": "admin - update dynamically",
+      "dbName": "demodb",
+      "defaultIamRoleArn" : "defaultIamRoleArn - update dynamically",
+      "iamRoles": [ "defaultIamRoleArn - update dynamically" ],
       "logExports": [ "userlog", "connectionlog", "useractivitylog" ],
       "tags" : [ "tags - update dynamically" ]
   },
@@ -26,8 +26,8 @@
       "baseCapacity": 8,      
       "enhancedVpcRouting" : false,
       "publiclyAccessible" : false,
-      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3"],
-      "securityGroupIds" : [ "sg-value" ],
+      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3 - update all  dynamically" ],
+      "securityGroupIds" : [ "sg-value - update dynamically" ],
       "tags" : [ "tags - update dynamically" ]
   },
   "createUsageLimitParameters" :{
@@ -41,4 +41,3 @@
     "workgroupName" : "workgroupName"
   }
 }
-
