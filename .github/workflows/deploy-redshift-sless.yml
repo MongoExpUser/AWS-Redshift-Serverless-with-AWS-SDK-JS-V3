@@ -1,0 +1,255 @@
+#  ***********************************************************************************************************************************************
+#  *                                                                                                                                             *
+#  * @License Starts                                                                                                                             *
+#  *                                                                                                                                             *
+#  * Copyright © 2015 - present. MongoExpUser.  All Rights Reserved.                                                                             *
+#  *                                                                                                                                             *
+#  * License: MIT - https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/blob/main/LICENSE                                 *
+#  *                                                                                                                                             *
+#  * @License Ends                                                                                                                               *
+#  *                                                                                                                                             *
+#  *                                                                                                                                             *
+#  ***********************************************************************************************************************************************
+#  *                                                                                                                                             *
+#  *  The YAML file implements a Workflow for the deployment of AWS Redshift Serverless with AWS SDK for JavaScript/NodeJS v3                    *
+#  *                                                                                                                                             *
+#  ***********************************************************************************************************************************************
+
+
+
+# CI - Deploy AWS Redshift Serverless (RSSL)
+name: CI - AWS-SDK-JS-V3 Deploy RSSL
+
+# Option 1: Auto Workflow
+#on:
+  #push:
+  #  branches:
+  #  - main
+  # pull_request:
+  # matches pull request for all branches and tag names
+  
+# Option 2: Custom Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      Run Workflow:
+        description: 'Validated'
+        default: 'Yes'
+        required: true
+        options:
+        - 'Yes'
+        - 'No'
+      Tags:
+        description: 'AWS-SDK-V3'
+        default: true
+        required: true
+        type: boolean
+      Environment:
+        description: 'Environment'
+        type: environment
+        required: true
+        
+      
+jobs:
+
+  start:
+    name: Deploy-RSSL-Start
+    runs-on: ubuntu-latest
+    environment: starting
+    env:
+      DEPLOY: 'yes'
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+    - uses: actions/checkout@v2
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
+      
+    - name: DEPLOY - Start
+      if:  (env.DEPLOY == 'yes')
+      run: |
+        pwd
+        echo Start of Deployment
+        
+        
+  dev:
+    # if: ${{ always() }}
+    needs: [start]
+    name: Deploy-RSSL-Dev
+    runs-on: ubuntu-latest
+    environment: development
+    env:
+      DEPLOY: 'yes'
+      SDK_INIT_DIRECTORY: 'init'
+      BASE_DIRECTORY: '/home/runner/work'
+      REPO_NAME: ${{ github.event.repository.name }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      ENVIRONMENT: ${{ inputs.environment }}
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+    - uses: actions/checkout@v2
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
+      
+    - name: Install Node.js & Dependent Modules
+      run: |
+        # install
+        sudo apt-get -y update
+        curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        sudo npm install  --prefix $BASE_DIRECTORY/$REPO_NAME/$REPO_NAME sudo npm install @aws-sdk/client-redshift-serverless dotenv
+
+        # check versions & show directory's contents and details
+        pwd
+        sudo node -v
+        sudo npm -v
+        sudo npm ls
+        sudo df -h
+        sudo free -h
+        sudo ls -ltr
+           
+    - name: Deploy - Dev
+      if:  (env.DEPLOY == 'yes' && env.ENVIRONMENT == 'development')
+      run: |
+        # persist credentials & run code
+        echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION=${{ env.AWS_REGION }}
+        ' > .env
+        sudo node gh-actions-index.js
+  
+  
+  stag:
+    #if: ${{ always() }}
+    if: ${{ false }}  # disable job
+    needs: [start]
+    name: Deploy-RSSL-Stg
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      DEPLOY: 'yes'
+      SDK_INIT_DIRECTORY: 'init'
+      BASE_DIRECTORY: '/home/runner/work'
+      REPO_NAME: ${{ github.event.repository.name }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      ENVIRONMENT: ${{ inputs.environment }}
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+    - uses: actions/checkout@v2
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
+      
+    - name: Install Node.js & Dependent Modules
+      run: |
+        # install
+        sudo apt-get -y update
+        curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        sudo npm install  --prefix $BASE_DIRECTORY/$REPO_NAME/$REPO_NAME sudo npm install @aws-sdk/client-redshift-serverless dotenv
+        
+        # check versions & show directory's contents and details
+        pwd
+        sudo node -v
+        sudo npm -v
+        sudo npm ls
+        sudo df -h
+        sudo free -h
+        sudo ls -ltr
+        
+    - name: Deploy - Stag
+      if:  (env.DEPLOY == 'yes' && env.ENVIRONMENT == 'staging')
+      run: |
+        # persist credentials & run code
+        echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION=${{ env.AWS_REGION }}
+        ' > .env
+        sudo node gh-actions-index.js
+  
+      
+  prod:
+    #if: ${{ always() }}
+    if: ${{ false }}  # disable job
+    needs: [start]
+    name: Deploy-RSSL-Prod
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DEPLOY: 'no'
+      SDK_INIT_DIRECTORY: 'init'
+      BASE_DIRECTORY: '/home/runner/work'
+      REPO_NAME: ${{ github.event.repository.name }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      ENVIRONMENT: ${{ inputs.environment }}
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+    - uses: actions/checkout@v2
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
+      
+    - name: Install Node.js & Dependent Modules
+      run: |
+        # install
+        sudo apt-get -y update
+        curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        sudo npm install  --prefix $BASE_DIRECTORY/$REPO_NAME/$REPO_NAME sudo npm install @aws-sdk/client-redshift-serverless dotenv
+        
+        # check versions & show directory's contents and details
+        pwd
+        sudo node -v
+        sudo npm -v
+        sudo npm ls
+        sudo df -h
+        sudo free -h
+        sudo ls -ltr
+        
+    - name: Deploy - Prod
+      if:  (env.DEPLOY == 'yes' && env.ENVIRONMENT == 'production')
+      run: |
+        # persist credentials & run code
+        echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION=${{ env.AWS_REGION }}
+        ' > .env
+        sudo node gh-actions-index.js
+  
+        
+  end:
+    #if: ${{ always() }}
+    #if: ${{ false }}  # disable job
+    needs: [dev, stag, prod]
+    name: Deploy-RSSL-End
+    runs-on: ubuntu-latest
+    environment: ending
+    env:
+      DEPLOY: 'yes'
+    defaults:
+      run:
+        shell: bash
+ 
+    steps:
+    - uses: actions/checkout@v2
+      # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
+      
+    - name: Deploy - End
+      if:  (env.DEPLOY == 'yes')
+      run: |
+        pwd
+        echo End of Deployment
