@@ -9,7 +9,7 @@
   "createResources" : true,
   "deleteResources" : false,
   "credentials" : "credentials.json",
-  "addSuffix" : false,
+  "addSuffix" : true,
   "createParameters" : {
       "namespaceName":  "namespaceName - update dynamically",
       "adminUserPassword": "pasd - update dynamically",
