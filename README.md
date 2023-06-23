@@ -22,7 +22,7 @@
 
 ## DEPLOYING AWS Redshift Serverless with the NodeJS script
 
-## Option 1: Cloned to Local Computer
+## Option 1: Clone to Local Computer
 
 ### To deploy the stack  on ```AWS```, follow these steps:
 
