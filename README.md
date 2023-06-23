@@ -63,7 +63,7 @@
     * These include: <strong> accessKeyId, secretAccessKey and region.</strong>
     * This prevents exposure of the credentials.
 
-5)  #### Then enable GitHub Actions Workflow and run the YML file.
+4)  #### Then enable GitHub Actions Workflow and run the YML file.
     * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions <br><b>
   
 
