@@ -43,10 +43,10 @@ on:
         default: true
         required: true
         type: boolean
-      Environment:
-        description: 'Environment'
-        type: environment
-        required: false
+      #Environment:
+      #  description: 'Environment'
+      #  type: environment
+      #  required: true
         
       
 jobs:
@@ -145,7 +145,7 @@ jobs:
     environment: staging
     env:
       # gen env variables
-      DEPLOY: 'no'
+      DEPLOY: 'yes'
       SDK_INIT_DIRECTORY: 'init'
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }}
@@ -210,7 +210,7 @@ jobs:
     environment: production
     env:
       # gen env variables
-      DEPLOY: 'no'
+      DEPLOY: 'yes'
       SDK_INIT_DIRECTORY: 'init'
       BASE_DIRECTORY: '/home/runner/work'
       REPO_NAME: ${{ github.event.repository.name }}
