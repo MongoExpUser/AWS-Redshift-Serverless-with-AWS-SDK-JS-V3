@@ -47,7 +47,11 @@ on:
         description: 'Environment'
         type: environment
         required: true
-        default: staging
+        default: development
+        options:
+        - 'development'
+        - 'staging'
+        - 'production'
         
       
 jobs:
