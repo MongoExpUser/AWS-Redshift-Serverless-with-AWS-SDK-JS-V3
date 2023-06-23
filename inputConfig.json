@@ -38,6 +38,6 @@
       "period": "monthly"        
   },
   "deleteWorkgroupParameters" : {
-    "workgroupName" : "workgroupName"
+    "workgroupName" : "org-dev-demo-2ab3-wgp"
   }
 }
