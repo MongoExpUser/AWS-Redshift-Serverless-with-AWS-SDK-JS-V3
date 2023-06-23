@@ -137,8 +137,13 @@ async function main()
     const inputConfig = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
     const userDataFilePath = String(inputConfig.userData);
     const credentialJsonFilePath = inputConfig.credentials;
-    let credentials =  (JSON.parse(fs.readFileSync(credentialJsonFilePath))).credentials;
-    let options = { credentials: { accessKeyId : credentials.accessKeyId, secretAccessKey: credentials.secretAccessKey }, region: credentials.region };
+    let credentials =  JSON.parse(fs.readFileSync(credentialJsonFilePath));
+    let region =  process.env.AWS_REGION || credentials.region;
+    let accessKeyId = process.env.AWS_ACCESS_KEY_ID || credentials.accessKeyId;
+    let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY || credentials.secretAccessKey;
+    let options = { credentials: { accessKeyId : accessKeyId, secretAccessKey: secretAccessKey }, region: region };
+    let config = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
+
 
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
@@ -192,6 +197,11 @@ async function main()
         createResources : inputConfig.createResources,
         deleteResources : inputConfig.deleteResources
     }
+
+    // check params
+    console.log("Show ParamsObjec");
+    await rst.prettyPrint(paramsObject);
+    
     
     try
     {
