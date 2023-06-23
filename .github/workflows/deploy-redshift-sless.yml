@@ -138,7 +138,7 @@ jobs:
         AWS_VPC_SUBNET_ID_TWO=${{ env.AWS_VPC_SUBNET_ID_TWO }}
         AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
         IAM_ROLES=${{ env.IAM_ROLES }}
-        DEFAULT_IAM_Role_ARN=${{enve.DEFAULT_IAM_Role_ARN }}
+        DEFAULT_IAM_Role_ARN=${{env.DEFAULT_IAM_Role_ARN }}
         ' > .env
         sudo node gh-actions-index.js
   
