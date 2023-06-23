@@ -45,7 +45,7 @@ on:
         type: boolean
       Environment:
         description: 'Environment'
-        # type: environment
+        type: environment
         required: true
         default: development
         options:
@@ -196,7 +196,7 @@ jobs:
         sudo ls -ltr
         
     - name: Deploy - Stag
-      if:  (env.DEPLOY == 'yes' && env.ENVIRONMENT == 'staging')
+      if:  (env.DEPLOY == 'yes') # && env.ENVIRONMENT == 'staging')
       run: |
         # persist credentials & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
@@ -261,7 +261,7 @@ jobs:
         sudo ls -ltr
         
     - name: Deploy - Prod
-      if:  (env.DEPLOY == 'yes' && env.ENVIRONMENT == 'production')
+      if:  (env.DEPLOY == 'yes') # && env.ENVIRONMENT == 'production')
       run: |
         # persist credentials & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
