@@ -1,5 +1,4 @@
-/*
-#  *****************************************************************************************************************************************************
+/* *****************************************************************************************************************************************************
 #  *                                                                                                                                                   *
 #  * @License Starts                                                                                                                                   *
 #  *                                                                                                                                                   *
@@ -21,8 +20,7 @@
 #  *    1) DDL script for data objects (Tables) creation: Run via Redshift Query Editor 2                                                              *
 #  *    2) DML scripts for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)            *
 #  *    3) DQL script for running queries: : Run via Redshift Query Editor 2                                                                           *
-#  *****************************************************************************************************************************************************
-*/
+#  ****************************************************************************************************************************************************/
 
 
 class RedshiftStack
@@ -143,6 +141,8 @@ async function main()
     let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY || credentials.secretAccessKey;
     let options = { credentials: { accessKeyId : accessKeyId, secretAccessKey: secretAccessKey }, region: region };
 
+    
+
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
     const uuid4Value = await rst.uuid4();
@@ -196,8 +196,23 @@ async function main()
         deleteResources : inputConfig.deleteResources
     }
     
+    // check params
+    console.log("Show ParamsObject");
+    await rst.prettyPrint(paramsObject);
+    
+    
     try
     {
+        // add "adminUsername", ""adminUserPassword", "security group id(s)" and "subnet ids" to the "createWorkgroupParameters" variable on the "paramsObject" object.
+        paramsObject.createParameters.adminUsername = process.env.ADMIN_USERNAME;
+        paramsObject.createParameters.adminUserPassword = process.env.ADMIN_USER_PASSWORD;
+        paramsObject.createParameters.securityGroupIds = [process.env.AWS_VPC_SECURITY_GROUP];
+        paramsObject.createParameters.subnetIds = [process.env.AWS_VPC_SUBNET_ID_ONE, process.env.AWS_VPC_SUBNET_ID_TWO, process.env.AWS_VPC_SUBNET_ID_THREE];
+        
+        // add  "iamRoles" and "defaultIamRoleArn" to the "createParameters" variable on the "paramsObject" object.
+        paramsObject.createParameters.iamRoles = [process.env.IAM_ROLES];
+        paramsObject.createParameters.defaultIamRoleArn = process.env.DEFAULT_IAM_Role_ARN;
+        
         //add "namespaceName"  and "tags" to the "createParameters" variable on the "paramsObject" object.
         paramsObject.createParameters.namespaceName = namespaceName;
         paramsObject.createParameters.tags = tags;
