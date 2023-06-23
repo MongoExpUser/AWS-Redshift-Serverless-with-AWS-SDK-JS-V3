@@ -57,11 +57,13 @@
   
 2)  #### Also fill relevant values in the inputConfig.json file.
     * Ensure that the environment (dev, stag or prod) and region in the file (inputConfig.json) correspond to the values in the GitHub Actions YML file. <br>
-    * Add the AWS IAM Role, AWS VPC Security Group id(s) and AWS VPC subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing their values.
-      
-3)  #### Add the credentials to the GitHub Secrets instead of in the credentials.json file.
+    * Add the actual values the AWS IAM Role, AWS VPC Security Group id(s) and AWS VPC subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing their values.
+    * See the <strong>env</strong> sections of the YML Deployment File: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/blob/main/.github/workflows/deploy-redshift-sless.yml
+3)  #### Add the actual values for credentials to the GitHub Secrets.
+    * These include: <strong> accessKeyId, secretAccessKey and region.</strong>
+    * This prevents exposure of the credentials.
 
-4)  #### Then enable GitHub Actions Workflow and run the YML file.
+5)  #### Then enable GitHub Actions Workflow and run the YML file.
     * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions <br><b>
   
 
