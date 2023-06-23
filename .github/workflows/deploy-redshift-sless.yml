@@ -43,10 +43,11 @@ on:
         default: true
         required: true
         type: boolean
-      #Environment:
-      #  description: 'Environment'
-      #  type: environment
-      #  required: true
+      Environment:
+        description: 'Environment'
+        type: environment
+        required: true
+        default: staging
         
       
 jobs:
