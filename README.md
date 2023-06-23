@@ -57,7 +57,7 @@
   
 2)  #### Also fill relevant values in the inputConfig.json file.
     * Ensure that the environment (dev, stag or prod) and region in the file (inputConfig.json) correspond to the values in the GitHub Actions YML file. <br>
-    * Add the the AWS IAM Role, AWS VPC Security Group id(s) and AWS VPC subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing their values.
+    * Add the AWS IAM Role, AWS VPC Security Group id(s) and AWS VPC subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing their values.
       
 3)  #### Add the credentials to the GitHub Secrets instead of in the credentials.json file.
 
