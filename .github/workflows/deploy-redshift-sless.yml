@@ -137,6 +137,8 @@ jobs:
         AWS_VPC_SUBNET_ID_ONE=${{ env.AWS_VPC_SUBNET_ID_ONE }}
         AWS_VPC_SUBNET_ID_TWO=${{ env.AWS_VPC_SUBNET_ID_TWO }}
         AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
+        ADMIN_USERNAME=${{ env.ADMIN_USERNAME }}
+        ADMIN_USER_PASSWORD=${{ env.ADMIN_USER_PASSWORD }}
         IAM_ROLES=${{ env.IAM_ROLES }}
         DEFAULT_IAM_Role_ARN=${{env.DEFAULT_IAM_Role_ARN }}
         ' > .env
@@ -200,13 +202,21 @@ jobs:
     - name: Deploy - Stag
       if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Staging')
       run: |
-        # persist credentials & run code
+        # persist environmental variables & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION=${{ env.AWS_REGION }}
+        AWS_VPC_SECURITY_GROUP=${{ env.AWS_VPC_SECURITY_GROUP }}
+        AWS_VPC_SUBNET_ID_ONE=${{ env.AWS_VPC_SUBNET_ID_ONE }}
+        AWS_VPC_SUBNET_ID_TWO=${{ env.AWS_VPC_SUBNET_ID_TWO }}
+        AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
+        ADMIN_USERNAME=${{ env.ADMIN_USERNAME }}
+        ADMIN_USER_PASSWORD=${{ env.ADMIN_USER_PASSWORD }}
+        IAM_ROLES=${{ env.IAM_ROLES }}
+        DEFAULT_IAM_Role_ARN=${{env.DEFAULT_IAM_Role_ARN }}
         ' > .env
         sudo node gh-actions-index.js
-  
+
       
   prod:
     #if: ${{ always() }}
@@ -265,13 +275,21 @@ jobs:
     - name: Deploy - Prod
       if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Production')
       run: |
-        # persist credentials & run code
+      run: |
+        # persist environmental variables & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION=${{ env.AWS_REGION }}
+        AWS_VPC_SECURITY_GROUP=${{ env.AWS_VPC_SECURITY_GROUP }}
+        AWS_VPC_SUBNET_ID_ONE=${{ env.AWS_VPC_SUBNET_ID_ONE }}
+        AWS_VPC_SUBNET_ID_TWO=${{ env.AWS_VPC_SUBNET_ID_TWO }}
+        AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
+        ADMIN_USERNAME=${{ env.ADMIN_USERNAME }}
+        ADMIN_USER_PASSWORD=${{ env.ADMIN_USER_PASSWORD }}
+        IAM_ROLES=${{ env.IAM_ROLES }}
+        DEFAULT_IAM_Role_ARN=${{env.DEFAULT_IAM_Role_ARN }}
         ' > .env
         sudo node gh-actions-index.js
-  
         
   end:
     #if: ${{ always() }}
