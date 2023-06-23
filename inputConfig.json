@@ -11,23 +11,23 @@
   "credentials" : "credentials.json",
   "addSuffix" : true,
   "createParameters" : {
-      "namespaceName":  "namespaceName",
-      "adminUserPassword": "pasd",
-      "adminUsername": "admin",
+      "namespaceName":  "namespaceName  - update dynamically",
+      "adminUserPassword": "adminUserPassword  - update dynamically",
+      "adminUsername": "adminUsername  - update dynamically",
       "dbName": "demodb",
-      "defaultIamRoleArn" : "arn:aws:iam::1234568999:role/dummy-update-dyn-role",
-      "iamRoles": [ "arn:aws:iam::1234568999:role/dummy-update-dyn-role" ],
+      "defaultIamRoleArn" : "defaultIamRoleArn",
+      "iamRoles": [ "iamRoles"],
       "logExports": [ "userlog", "connectionlog", "useractivitylog" ],
       "tags" : [ "tags - update dynamically" ]
   },
   "createWorkgroupParameters" : {
-      "namespaceName" : "namespaceName",  
-      "workgroupName" : "workgroupName", 
+      "namespaceName" : "namespaceName  - update dynamically",  
+      "workgroupName" : "workgroupName  - update dynamically", 
       "baseCapacity": 8,      
       "enhancedVpcRouting" : false,
       "publiclyAccessible" : false,
-      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3" ],
-      "securityGroupIds" : [ "sg-value" ],
+      "subnetIds" : ["subnet-value-1  - update dynamically", "subnet-value-2  - update dynamically", "subnet-value-3  - update dynamically" ],
+      "securityGroupIds" : [ "sg-value  - update dynamically" ],
       "tags" : [ "tags - update dynamically" ]
   },
   "createUsageLimitParameters" :{
