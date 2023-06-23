@@ -195,26 +195,26 @@ async function main()
     }
     
     
-    try
+     try
     {
         // add "adminUsername", ""adminUserPassword", "security group id(s)" and "subnet ids" to the "createWorkgroupParameters" variable on the "paramsObject" object.
-        paramsObject.createParameters.adminUsername = process.env.ADMIN_USERNAME;
-        paramsObject.createParameters.adminUserPassword = process.env.ADMIN_USER_PASSWORD;
-        paramsObject.createParameters.securityGroupIds = [process.env.AWS_VPC_SECURITY_GROUP];
-        paramsObject.createParameters.subnetIds = [process.env.AWS_VPC_SUBNET_ID_ONE, process.env.AWS_VPC_SUBNET_ID_TWO, process.env.AWS_VPC_SUBNET_ID_THREE];
+        paramsObject.createParameters.adminUsername =  await process.env.ADMIN_USERNAME;
+        paramsObject.createParameters.adminUserPassword =  await process.env.ADMIN_USER_PASSWORD;
+        paramsObject.createParameters.securityGroupIds =  await[ process.env.AWS_VPC_SECURITY_GROUP ];
+        paramsObject.createParameters.subnetIds =  await [ process.env.AWS_VPC_SUBNET_ID_ONE, process.env.AWS_VPC_SUBNET_ID_TWO, process.env.AWS_VPC_SUBNET_ID_THREE ];
         
         // add  "iamRoles" and "defaultIamRoleArn" to the "createParameters" variable on the "paramsObject" object.
-        paramsObject.createParameters.iamRoles = [process.env.IAM_ROLES];
-        paramsObject.createParameters.defaultIamRoleArn = process.env.DEFAULT_IAM_Role_ARN;
+        paramsObject.createParameters.iamRoles =  await [ process.env.IAM_ROLES ];
+        paramsObject.createParameters.defaultIamRoleArn =  await process.env.DEFAULT_IAM_Role_ARN;
         
         //add "namespaceName"  and "tags" to the "createParameters" variable on the "paramsObject" object.
-        paramsObject.createParameters.namespaceName = namespaceName;
-        paramsObject.createParameters.tags = tags;
+        paramsObject.createParameters.namespaceName =  await namespaceName;
+        paramsObject.createParameters.tags =  await tags;
 
         //add "namespaceName", "workgroupName"  and "tags" to the "createWorkgroupParameters" variable on the "paramsObject" object.
-        paramsObject.createWorkgroupParameters.namespaceName = namespaceName;
-        paramsObject.createWorkgroupParameters.workgroupName = `${namespaceName}-wgp`;
-        paramsObject.createWorkgroupParameters.tags = tags;
+        paramsObject.createWorkgroupParameters.namespaceName = await  namespaceName;
+        paramsObject.createWorkgroupParameters.workgroupName =  await `${namespaceName}-wgp`;
+        paramsObject.createWorkgroupParameters.tags =  await tags;
 
         //finally, create or delete resources
         await rst.createDelete(paramsObject);
