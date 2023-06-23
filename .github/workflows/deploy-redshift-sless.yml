@@ -49,9 +49,9 @@ on:
         required: true
         default: development
         options:
-        - 'development'
-        - 'staging'
-        - 'production'
+        - development
+        - staging
+        - production
         
       
 jobs:
