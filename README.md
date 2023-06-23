@@ -50,16 +50,25 @@
  
 ## OPTION 2: Through GitHub Actions
 
-### To deploy the stack  on ```AWS```, customize the workflow YML file in the following repository:
+### To deploy the stack  on ```AWS```, follow these steps:
 
-1) #### Sample GitHub Deployment
-   * Repo Link: https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3
-   * Repo CI Link: [![CI - AWS-SDK-JS-V3 Deploy CFN](https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3/actions/workflows/deploy-cfn.yml/badge.svg)](https://github.com/MongoExpUser/AWS-CloudFormation-Stack-with-AWS-SDK-JS-V3/actions/workflows/deploy-cfn.yml)
+1)  #### Check and fill relevant values in the GitHub Actions YML deployment file.
+    * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/blob/main/.github/workflows/deploy-redshift-sless.yml
   
+2)  #### Also fill relevant values in the inputConfig.json file.
+    * Ensure that the environment (dev, stag or prod) and region in the file (inputConfig.json) correspond to the values in the GitHub Actions YML file. <br>
+    * Add the the AWS IAM Role, AWS VPC Security Group id(s) and AWS VPC subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing their values.
+      
+3)  #### Add the credentials to the GitHub Secrets instead of in the credentials.json file.
+
+4)  #### Then enable GitHub Actions Workflow and run the YML file.
+    * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions <br><b>
+  
+
 
 
 # License
 
-Copyright © 2015 - present. MongoExpUser
+Copyright © 2023. MongoExpUser
 
 Licensed under the MIT license.
