@@ -47,7 +47,7 @@ on:
         description: 'Environment'
         type: environment
         required: false
-        default: Development
+        default: development
         
       
 jobs:
@@ -78,7 +78,7 @@ jobs:
     needs: [start]
     name: Deploy-RSSL-Dev
     runs-on: ubuntu-latest
-    environment: Development
+    environment: development
     env:
       # gen env variables
       DEPLOY: 'yes'
@@ -127,7 +127,7 @@ jobs:
         sudo ls -ltr
            
     - name: Deploy - Dev
-      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Development')
+      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'development')
       run: |
         # persist credentials & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
@@ -143,7 +143,7 @@ jobs:
     needs: [start]
     name: Deploy-RSSL-Stg
     runs-on: ubuntu-latest
-    environment: Staging
+    environment: staging
     env:
       # gen env variables
       DEPLOY: 'yes'
@@ -192,7 +192,7 @@ jobs:
         sudo ls -ltr
         
     - name: Deploy - Stag
-      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Staging')
+      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'staging')
       run: |
         # persist credentials & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
@@ -208,7 +208,7 @@ jobs:
     needs: [start]
     name: Deploy-RSSL-Prod
     runs-on: ubuntu-latest
-    environment: Production
+    environment: production
     env:
       # gen env variables
       DEPLOY: 'yes'
@@ -257,7 +257,7 @@ jobs:
         sudo ls -ltr
         
     - name: Deploy - Prod
-      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Production')
+      if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'production')
       run: |
         # persist credentials & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
