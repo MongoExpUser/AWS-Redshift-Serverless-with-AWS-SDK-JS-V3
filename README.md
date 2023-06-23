@@ -50,7 +50,7 @@
  
 ## OPTION 2: Through GitHub Actions
 
-### To deploy the stack  on ```AWS```, follow these steps:
+### To deploy on ```AWS```, follow these steps:
 
 1)  #### Check and fill relevant values in the GitHub Actions YML deployment file.
     * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/blob/main/.github/workflows/deploy-redshift-sless.yml
