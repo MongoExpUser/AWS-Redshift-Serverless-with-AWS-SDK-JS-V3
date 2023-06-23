@@ -6,8 +6,8 @@
   "regionName" : "us-east-1",
   "resoureName" :  "demo",
   "serviceProvider" :"org-provider",
-  "createResources" : false,
-  "deleteResources" : true,
+  "createResources" : true,
+  "deleteResources" : false,
   "credentials" : "credentials.json",
   "addSuffix" : true,
   "createParameters" : {
