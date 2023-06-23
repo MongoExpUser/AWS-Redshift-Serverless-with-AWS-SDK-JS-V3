@@ -15,8 +15,8 @@
       "adminUserPassword": "pasd",
       "adminUsername": "admin",
       "dbName": "demodb",
-      "defaultIamRoleArn" : "defaultIamRoleArn",
-      "iamRoles": [ "defaultIamRoleArn" ],
+      "defaultIamRoleArn" : "arn:aws:iam::1234568999:role/dummy-update-dyn-role",
+      "iamRoles": [ "arn:aws:iam::1234568999:role/dummy-update-dyn-role" ],
       "logExports": [ "userlog", "connectionlog", "useractivitylog" ],
       "tags" : [ "tags - update dynamically" ]
   },
