@@ -138,9 +138,9 @@ jobs:
         AWS_VPC_SUBNET_ID_TWO=${{ env.AWS_VPC_SUBNET_ID_TWO }}
         AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
         # aws redshift env variables
-        ADMIN_USERNAME="test" 
+        # ADMIN_USERNAME="test" 
         # ${{ env.ADMIN_USERNAME }}
-        ADMIN_USER_PASSWORD="test 
+        # ADMIN_USER_PASSWORD="test 
         # ${{ env.ADMIN_USER_PASSWORD }}
         IAM_ROLES=${{ env.IAM_ROLES }}
         DEFAULT_IAM_Role_ARN=${{enve.DEFAULT_IAM_Role_ARN }}
