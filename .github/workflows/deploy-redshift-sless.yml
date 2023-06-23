@@ -45,7 +45,7 @@ on:
         type: boolean
       Environment:
         description: 'Environment'
-        type: environment
+        # type: environment
         required: true
         default: development
         options:
