@@ -275,7 +275,6 @@ jobs:
     - name: Deploy - Prod
       if:  (env.DEPLOY == 'yes') && (env.ENVIRONMENT == 'Production')
       run: |
-      run: |
         # persist environmental variables & run code
         echo 'AWS_ACCESS_KEY_ID=${{ env.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY=${{ env.AWS_SECRET_ACCESS_KEY }}
