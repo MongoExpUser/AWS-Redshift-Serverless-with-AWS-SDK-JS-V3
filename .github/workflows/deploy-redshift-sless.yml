@@ -144,7 +144,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     env:
-      env:
       # gen env variables
       DEPLOY: 'no'
       SDK_INIT_DIRECTORY: 'init'
