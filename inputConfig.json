@@ -11,23 +11,23 @@
   "credentials" : "credentials.json",
   "addSuffix" : true,
   "createParameters" : {
-      "namespaceName":  "namespaceName - update dynamically",
-      "adminUserPassword": "pasd - update dynamically",
-      "adminUsername": "admin - update dynamically",
+      "namespaceName":  "namespaceName",
+      "adminUserPassword": "pasd",
+      "adminUsername": "admin",
       "dbName": "demodb",
-      "defaultIamRoleArn" : "defaultIamRoleArn - update dynamically",
-      "iamRoles": [ "defaultIamRoleArn - update dynamically" ],
+      "defaultIamRoleArn" : "defaultIamRoleArn",
+      "iamRoles": [ "defaultIamRoleArn" ],
       "logExports": [ "userlog", "connectionlog", "useractivitylog" ],
       "tags" : [ "tags - update dynamically" ]
   },
   "createWorkgroupParameters" : {
-      "namespaceName" : "namespaceName - update dynamically",  
-      "workgroupName" : "namespaceName - update dynamically", 
+      "namespaceName" : "namespaceName",  
+      "workgroupName" : "workgroupName", 
       "baseCapacity": 8,      
       "enhancedVpcRouting" : false,
       "publiclyAccessible" : false,
-      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3 - update all  dynamically" ],
-      "securityGroupIds" : [ "sg-value - update dynamically" ],
+      "subnetIds" : ["subnet-value-1", "subnet-value-2", "subnet-value-3" ],
+      "securityGroupIds" : [ "sg-value" ],
       "tags" : [ "tags - update dynamically" ]
   },
   "createUsageLimitParameters" :{
