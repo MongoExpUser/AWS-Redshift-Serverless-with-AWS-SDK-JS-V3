@@ -97,8 +97,8 @@ jobs:
       AWS_VPC_SUBNET_ID_TWO: ${{ secrets.AWS_VPC_SUBNET_ID_TWO }}
       AWS_VPC_SUBNET_ID_THREE: ${{ secrets.AWS_VPC_SUBNET_ID_THREE }}
       # aws redshift env variables
-      ADMIN_USERNAME: env.ADMIN_USERNAME
-      ADMIN_USER_PASSWORD: env.ADMIN_USER_PASSWORD
+      ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+      ADMIN_USER_PASSWORD: ${{ secrets.ADMIN_USER_PASSWORD }}
       IAM_ROLES: ${{ secrets.IAM_ROLES }}
       DEFAULT_IAM_Role_ARN: ${{ secrets.DEFAULT_IAM_Role_ARN }}
     defaults:
