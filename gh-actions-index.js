@@ -223,7 +223,9 @@ async function main()
         paramsObject.createWorkgroupParameters.tags = tags;
 
         //finally, create or delete resources
-        await rst.createDelete(paramsObject);
+        console.log("Checking after update: Show ParamsObject Again!");
+        await rst.prettyPrint(paramsObject);
+        // await rst.createDelete(paramsObject);
     }
     catch (error)
     {
