@@ -47,11 +47,7 @@ on:
         description: 'Environment'
         type: environment
         required: false
-        default: development
-        options:
-        - Development
-        - Staging
-        - Production
+        default: Development
         
       
 jobs:
@@ -143,7 +139,7 @@ jobs:
   
   stag:
     #if: ${{ always() }}
-    #if: ${{ false }}  # disable job
+    if: ${{ false }}  # disable job
     needs: [start]
     name: Deploy-RSSL-Stg
     runs-on: ubuntu-latest
@@ -208,7 +204,7 @@ jobs:
       
   prod:
     #if: ${{ always() }}
-    # if: ${{ false }}  # disable job
+    if: ${{ false }}  # disable job
     needs: [start]
     name: Deploy-RSSL-Prod
     runs-on: ubuntu-latest
