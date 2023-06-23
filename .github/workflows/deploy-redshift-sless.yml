@@ -139,7 +139,6 @@ jobs:
         AWS_VPC_SUBNET_ID_THREE=${{ env.AWS_VPC_SUBNET_ID_THREE }}
         IAM_ROLES=${{ env.IAM_ROLES }}
         DEFAULT_IAM_Role_ARN=${{enve.DEFAULT_IAM_Role_ARN }}
-        
         ' > .env
         sudo node gh-actions-index.js
   
@@ -290,12 +289,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       # note: checkout directory: /home/runner/work/${repo-name}/$${repo-name}
-      
-          # aws redshift env variables
-        # ADMIN_USERNAME="test" 
-        # ${{ env.ADMIN_USERNAME }}
-        # ADMIN_USER_PASSWORD="test 
-        # ${{ env.ADMIN_USER_PASSWORD }}
+
       
     - name: Deploy - End
       if:  (env.DEPLOY == 'yes')
