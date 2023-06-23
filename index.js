@@ -195,11 +195,6 @@ async function main()
         createResources : inputConfig.createResources,
         deleteResources : inputConfig.deleteResources
     }
-
-    // check params
-    console.log("Show ParamsObjec");
-    await rst.prettyPrint(paramsObject);
-    
     
     try
     {
