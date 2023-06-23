@@ -132,18 +132,16 @@ async function main()
 {
     // require/import and instantiate relevant modules
     const fs = require('fs');
+    require("dotenv").config();
     const rst = new RedshiftStack();
     const inputConfigJsonFilePath = "inputConfig.json";
     const inputConfig = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
-    const userDataFilePath = String(inputConfig.userData);
     const credentialJsonFilePath = inputConfig.credentials;
     let credentials =  JSON.parse(fs.readFileSync(credentialJsonFilePath));
     let region =  process.env.AWS_REGION || credentials.region;
     let accessKeyId = process.env.AWS_ACCESS_KEY_ID || credentials.accessKeyId;
     let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY || credentials.secretAccessKey;
     let options = { credentials: { accessKeyId : accessKeyId, secretAccessKey: secretAccessKey }, region: region };
-    let config = JSON.parse(fs.readFileSync(inputConfigJsonFilePath));
-
 
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
