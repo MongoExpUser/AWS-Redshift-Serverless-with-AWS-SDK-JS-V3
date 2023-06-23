@@ -15,7 +15,6 @@
 #  *                                                                                                                                             *
 #  ***********************************************************************************************************************************************
 
-# Add the the IAM role, security group and subnet ids to the GitHub Secrets instead of specifying them  in the config file (inputConfig.json) to avoid exposing the values.
 
 # CI - Deploy AWS Redshift Serverless (RSSL)
 name: CI - AWS-SDK-JS-V3 Deploy RSSL
