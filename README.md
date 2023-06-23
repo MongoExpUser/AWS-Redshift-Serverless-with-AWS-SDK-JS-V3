@@ -1,3 +1,5 @@
+[![CI - AWS-SDK-JS-V3 Deploy RSSL](https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions/workflows/deploy-redshift-sless.yml/badge.svg)](https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions/workflows/deploy-redshift-sless.yml)
+
 # AWS-Redshift-Serverless-with-AWS-SDK-JS-V3
 
 <strong> Deployment and Modeling of AWS Redshift Serverless (A cloud data warehouse).</strong>
