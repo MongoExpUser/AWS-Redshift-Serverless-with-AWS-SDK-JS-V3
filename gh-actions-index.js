@@ -57,7 +57,7 @@ class RedshiftStack
         try
         {
             data = await client.send(command);
-            rst.prettyPrint({ "data" : data } );
+            rst.prettyPrint({ "statusCode" : data["$metadata"]["httpStatusCode"] } );
         }
         catch(error)
         {
