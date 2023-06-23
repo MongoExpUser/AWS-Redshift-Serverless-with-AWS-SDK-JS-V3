@@ -140,9 +140,7 @@ async function main()
     let accessKeyId = process.env.AWS_ACCESS_KEY_ID || credentials.accessKeyId;
     let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY || credentials.secretAccessKey;
     let options = { credentials: { accessKeyId : accessKeyId, secretAccessKey: secretAccessKey }, region: region };
-
     
-
     // define common naming, tagging and environmental variables
     const addSuffix = inputConfig.addSuffix;
     const uuid4Value = await rst.uuid4();
@@ -196,10 +194,6 @@ async function main()
         deleteResources : inputConfig.deleteResources
     }
     
-    // check params
-    console.log("Show ParamsObject");
-    await rst.prettyPrint(paramsObject);
-    
     
     try
     {
@@ -223,9 +217,7 @@ async function main()
         paramsObject.createWorkgroupParameters.tags = tags;
 
         //finally, create or delete resources
-        console.log("Checking after update: Show ParamsObject Again!");
-        await rst.prettyPrint(paramsObject);
-        // await rst.createDelete(paramsObject);
+        await rst.createDelete(paramsObject);
     }
     catch (error)
     {
