@@ -12,15 +12,15 @@
 *  index.js implements a module/script for creating and deleting Redshift Serverless with with AWS SDK for JavaScript/NodeJS V3.                     *
 *                                                                                                                                                    *
 *  A) The following resources are created/deployed with @aws-sdk/client-redshift-serverless (AWS-SDK-JS-V3):                                         *
-*       1) Redshift Serverless Namespace                                                                                                             *
+*    1) Redshift Serverless Namespace                                                                                                                *
 *    2) Redshift Serverless Workgroup                                                                                                                *
 *    3) Redshift Serverless Usage Limit                                                                                                              *
 *                                                                                                                                                    *
 *  B) Additional scripts for modeling:                                                                                                               *
 *    1) DDL script for data objects (Tables) creation: Run via Redshift Query Editor 2                                                               *
-*    2) DML scripts for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)             *
+*    2) DML script for inserting data: Run via Redshift Query Editor 2 or NodeJS module - @aws-sdk/client-redshift-data (AWS-SDK-JS-V3)              *
 *    3) DQL script for running queries: : Run via Redshift Query Editor 2                                                                            *
-#  ****************************************************************************************************************************************************/
+#  ***************************************************************************************************************************************************/
 
 
 class RedshiftStack
