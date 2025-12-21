@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS music_video.track_streams (
   monthly_youtube_streams BIGINT NOT NULL,
   monthly_amazon_streams BIGINT NOT NULL,
   streams_month VARCHAR(9) NOT NULL,
-  streams_year VARCHAR(2) NOT NULL
+  streams_year VARCHAR(2) NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT GETDATE()
 ) COMPOUND SORTKEY (id, released_year);
 -- automatic table optimization using DISTKEY
 ALTER TABLE music_video.track_streams ALTER DISTSTYLE AUTO; -- the default
