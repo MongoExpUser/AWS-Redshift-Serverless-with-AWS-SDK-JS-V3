@@ -67,7 +67,7 @@
     * Link: https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/actions <br><b>
 
 #
-### ERD Diagram of Sample Music Video Streams' STAR Schema
+### ER Diagram of a Sample Music Video Streams' STAR Schema
 ![Image description](https://github.com/MongoExpUser/AWS-Redshift-Serverless-with-AWS-SDK-JS-V3/blob/main/music_video_streams_star_schema.png)
   
 
